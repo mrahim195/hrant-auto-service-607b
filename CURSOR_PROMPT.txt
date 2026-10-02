@@ -1,0 +1,1485 @@
+You are an autonomous senior product designer, UI/UX designer, brand designer, frontend engineer, accessibility engineer, SEO engineer, and QA engineer.
+
+Your task is to transform the provided Next.js starter into a complete, production-quality website for ONE specific local business.
+
+You are not simply filling a template.
+
+You must understand the business context first, decide what type of website experience makes sense for that business, and then design and implement the website around that context.
+
+The final website must feel like it was intentionally designed by a professional digital agency for this exact business.
+
+============================================================
+BUSINESS
+============================================================
+
+Lead_ID: Lf3ab22ec607b
+
+Project folder / repository slug:
+
+hrant-auto-service-607b
+
+Business name:
+
+Hrant Auto Service
+
+The complete business information is available in:
+
+LEAD_CONTEXT.json
+
+You MUST read LEAD_CONTEXT.json before making implementation decisions.
+
+You must also use this JSON snapshot:
+
+{
+  "Lead_ID": "Lf3ab22ec607b",
+  "Name": "Hrant Auto Service",
+  "Title": "Auto repair shop",
+  "Email": "[]",
+  "Phone": "+1 626-798-4064",
+  "Product_Type": "mrs",
+  "Whatsapp_Status": "New",
+  "Email_Status": "New",
+  "Address": "1477 E Washington Blvd, Pasadena, CA 91104, United States",
+  "Detailed_Address": "1477 E Washington Blvd, Pasadena, California, 91104",
+  "Maps_Link": "https://www.google.com/maps/place/Hrant+Auto+Service/data=!4m7!3m6!1s0x80c2c331c6f0f0e1:0x8dcd6cd01c73df3f!8m2!3d34.1693465!4d-118.1201031!16s%2Fg%2F1x5fbmrw!19sChIJ4fDwxjHDwoARP99zHNBszY0?authuser=0&hl=en&g_ep=EgoyMDI2MDkyOS4wIJJjKgBIAVAD&rclk=1",
+  "Coordinates": "34.169346499999996, -118.1201031",
+  "Plus_Code": "5V9H+PX Pasadena, California, USA",
+  "Phone_International": "+1 626-798-4064",
+  "Categories": "Auto repair shop; Brake shop",
+  "Hours": "Monday: 7:30 AM-5:30 PM; Tuesday: 7:30 AM-5:30 PM; Wednesday: 7:30 AM-5:30 PM; Thursday: 7:30 AM-5:30 PM; Friday: 7:30 AM-5 PM; Saturday: Closed; Sunday: Closed",
+  "Workday_Timing": "7:30 AM-5:30 PM",
+  "About": "Accessibility: Wheelchair accessible entrance, Wheelchair accessible parking lot",
+  "Featured_Image": "https://lh3.googleusercontent.com/grass-cs/AABkmLdiAyn0BvfNU4XjNGXi_dVuQnI2ZGxiyTyswCd2PnuKkwP8bO6xw88i5yr0oT9wuLRP7GvVDirrh8ORDCWioe4bITqzGDy71MSu0GKdyN4C1hBL0g3Azhxa4xy2aEp8tYsELUKq0t1gRYJW=w1920-h1080-k-no",
+  "Rating": "4.9",
+  "Reviews": "262",
+  "Reviews_Link": "https://search.google.com/local/reviews?placeid=ChIJ4fDwxjHDwoARP99zHNBszY0&q=Hrant+Auto+Service&authuser=0&hl=en",
+  "Query": "auto repair shop in california",
+  "good_to_build": "yes"
+}
+
+Treat the business information as the factual source of truth.
+
+============================================================
+REAL CONTACT DATA (MANDATORY)
+============================================================
+
+Use ONLY real values from LEAD_CONTEXT.json / the JSON snapshot for:
+
+- Business name
+- Phone / Phone_International
+- Email (if present — put it in header, footer, contact page, and mailto links)
+- Address / Detailed_Address
+- Hours / Workday_Timing
+- Maps_Link / Coordinates
+- Categories / Title / Description / About
+- Featured_Image / Images (when URLs exist)
+
+Rules:
+1. If Email is present, display that exact email everywhere contact email is shown. Do NOT invent a fake @gmail / @info address.
+2. If Email is blank, omit email CTAs or use a contact form only — do NOT invent an email.
+3. Phone and address must match the lead data exactly (formatting for readability is OK).
+4. Put accurate NAP (name, address, phone) in the footer and contact section.
+5. Wire NEXT_PUBLIC_BUSINESS_* / site.ts from the real lead values.
+
+============================================================
+DESIGN MEMORY (PRIOR SITES — DO NOT REPEAT)
+============================================================
+
+The parent builds folder keeps a shared design memory so every new site looks different.
+
+A snapshot of that memory is included below. Treat it as already-used designs.
+
+You MUST:
+1. Study prior colors, layouts, section order, hero type, image/map placement, fonts, logo styles, and animation approach below.
+2. Choose a COMPLETELY different STRUCTURE for THIS business — not a color/font reskin of the template.
+3. The template is scaffolding only. You MUST rewrite homepage section order, hero composition, where images appear, where the map appears, navigation pattern, and motion system.
+4. Changing only CSS variables / colors / fonts while keeping the same Hero→Services→About→CTA→Map→Footer skeleton is a FAILED build. Redo the structure.
+5. Before finishing, write `DESIGN_USED.md` in THIS project root (exact filename) with short bullets:
+
+- Colors: (hex values + mood)
+- Fonts: (heading + body families)
+- Layout archetype: (pick one unique name, e.g. split-hero-asymmetric / stacked-editorial / bento-services / map-first / gallery-led / timeline-process / sidebar-sticky-cta)
+- Section order: (exact homepage order, e.g. Hero → Map → Services → FAQ → Contact)
+- Hero: (composition — full-bleed image, split text/media, video-like overlay, centered minimal, diagonal clip, etc.)
+- Media placement: (where images / gallery / map live — must differ from recent entries)
+- Motion: (framer-motion or gsap + which effects)
+- Logo/mark: (how brand mark was handled)
+- Avoid-next-time: (3+ distinctive structural traits others must not copy)
+
+Do not invent fake prior sites. Only avoid what is listed in the memory.
+
+DESIGN MEMORY CONTENTS:
+# Site Builder Design Memory
+
+Cursor reads this file before building a new site.
+After each successful build, a new entry is appended so the next site stays visually distinct.
+
+## Rules for Cursor
+- Do NOT reuse the same color palette, layout pattern, font pairing, or logo/mark style as any entry below.
+- Copy the Next.js template structure, then completely transform UI/UX for THIS business.
+- Prefer a clearly different visual direction from the most recent 5 entries.
+
+## Used designs
+
+### Lc467bad4ce5a · Community Medical Group of Miami · `community-medical-group-of-miami-ce5a`
+- Colors: teal / sand clinical palette (prior default look — do not reuse)
+- Layout: standard multi-section clinic template rhythm
+- Note: early build; treat as "avoid teal/sand clinic clone"
+
+### Lee8f51ca1665 · United American Medical Center · `united-american-medical-center-1665`
+- Colors: teal / sand (same family as Miami — do not reuse)
+- Layout: similar clinic section stack
+
+### L43fcb4df21b3 · Mountain Family Health Care Center · `mountain-family-health-care-center-21b3`
+- Note: prior clinic build — choose a clearly different direction
+
+### L9d93c6baf7f8 · Medical Center · `medical-center-f7f8`
+- Note: prior clinic build — choose a clearly different direction
+
+### L7c8db0af6e4a · California Care Medical · `california-care-medical-6e4a`
+- Note: prior clinic build — choose a clearly different direction
+
+### La98af1b4494f · Trinity Animal Care Services · `trinity-animal-care-services-494f`
+- Note: prior animal-care build — avoid repeating its look for the next veterinary site
+
+### L144a04709481 · Northern California Care Provider · `northern-california-care-provider-9481`
+- Updated: 2026-10-01T15:30Z
+# Design used — Northern California Care Provider (L144a04709481)
+
+- Colors: `#1A1F26` ink charcoal, `#B8963E` harvest gold, `#F2F4F6` cool stone, `#F7F1E3` warm parchment text on dark — authoritative clinic with California valley warmth (not teal/sand)
+- Fonts: Fraunces (headings) + Public Sans (body)
+- Layout: Full-bleed dark photo hero with brand as hero signal; thin ink utility bar + sticky stone nav; numbered accessibility strip + service rails (no card grids); asymmetric split about; map-forward location; dark footer
+- Logo/mark: Squared ink badge with “NC” letterforms and a soft gold care arc underline; wordmark stacked “Northern California / Care Provider”
+- Image style: Photoreal clinic interior hero, consultation desk, accessible exterior — soft daylight, cool gray + wood, no text overlays
+- Avoid-next-time: Harvest-gold-on-charcoal utility bar; Fraunces + Public Sans pairing; numbered horizontal service rails instead of cards
+
+---
+## Anti-reskin note (2026-10-01)
+Prior clinic builds reused the same structural skeleton (hero split → card grid → about → map → footer) with only color/font changes. That pattern is BANNED going forward.
+
+Next builds MUST vary:
+- Layout archetype
+- Homepage section order
+- Hero composition
+- Image / gallery placement
+- Map placement
+- Motion library usage (framer-motion or gsap) with custom sequences
+
+### Lecc4b4670db5 · T P Auto Repair · `t-p-auto-repair-0db5`
+- Updated: 2026-10-02T13:04Z
+# Design used — T P Auto Repair (Lecc4b4670db5)
+
+- Colors: `#12151A` asphalt ink, `#D94A1E` signal orange-red, `#1E2A36` steel bay, `#ECEAE6` concrete, `#F7F6F3` paper — industrial garage, North Park grit (not teal/sand, not harvest gold)
+- Fonts: Barlow Condensed (headings) + Outfit (body)
+- Layout archetype: bay-door-diagonal
+- Section order: Hero (diagonal clip) → Map/Location band → Zigzag service bays → Process timeline → About + access → Quote CTA → Footer
+- Hero: Full-bleed workshop photo with diagonal clip edge; brand as primary hero signal; dual CTAs (Call / Request service)
+- Media placement: Featured shop photo in hero; service images in zigzag mid-page; map immediately after hero (not footer-adjacent); about uses secondary workshop still
+- Motion: framer-motion — hero stagger entrance, scroll reveals with alternate slide/clip patterns, mobile drawer spring, button press scale
+- Logo/mark: Hexagonal bolt-plate “TP” monogram + stacked wordmark “T P / Auto Repair”
+- Avoid-next-time: Diagonal bay-door hero clip; signal orange-red on asphalt; map band right under hero; zigzag service rails with numbered bay labels; Barlow Condensed + Outfit pairing
+
+
+============================================================
+HARD RULE — NO TEMPLATE RESKIN
+============================================================
+
+The starter homepage is ONLY a placeholder.
+
+FORBIDDEN (automatic fail):
+- Keep the same section order as the starter or as a prior site in design memory
+- Keep the same hero grid (text left / image right) on every clinic site
+- Keep identical card grids, spacing rhythm, and CTA blocks with only new colors/fonts
+- Keep map + contact in the same relative position every time
+- Reuse the same entrance animation pattern (same fade-up on every section)
+- Ship a site that would still look like the template after swapping brand colors
+- Reuse the same logo mark style, icon set, or illustration treatment as a recent build
+- Reuse the same color mood (e.g. teal/sand clinic) or the same font pairing as a recent build
+
+REQUIRED uniqueness for THIS lead:
+1. Pick ONE layout archetype that is NOT used by the last 5 design-memory entries.
+2. Rebuild the homepage JSX around that archetype (new section components / order).
+3. Place imagery in a different composition (full-bleed, mosaic, sticky side media, overlapping frames, etc.).
+4. Place map / location in a different spot than recent builds (or integrate it into hero / contact split / footer band — vary it).
+5. Install and use a real motion library:
+   - Prefer `framer-motion` for React component orchestration, OR
+   - `gsap` + `@gsap/react` / ScrollTrigger for scroll-driven storytelling
+6. Implement custom motion: hero intro, staggered section reveals, nav/menu transitions, hover states, at least one scroll-triggered sequence. Respect prefers-reduced-motion.
+7. Custom transitions between interactive states (mobile menu, buttons, cards) — not only CSS color changes.
+8. Unique logo/mark + unique color system + unique typography for THIS business only.
+
+Every new website must feel like a different agency built it. No siblings that share layout DNA.
+
+Routes may stay Home / About / Services / Contact, but EACH page's internal layout must be redesigned for this business.
+
+============================================================
+IMPORTANT PRINCIPLE
+============================================================
+
+DO NOT build the same website for every business.
+
+The website must dynamically adapt to:
+
+- Business category
+- Business name
+- Services
+- Description
+- Location
+- Opening hours
+- Target customers
+- Available images
+- Contact information
+- Business type
+- Business goals
+- Information available in the lead data
+
+You must make design and UX decisions based on the actual business.
+
+For example:
+
+A dental clinic should feel like a healthcare/dental website.
+
+A restaurant should feel like a restaurant.
+
+A law firm should feel professional and authoritative.
+
+A salon should feel visually rich and appointment-oriented.
+
+An auto repair business should emphasize services, trust, location, phone/contact and quote/request actions.
+
+A real estate business should emphasize properties, search/browse experiences and inquiry actions.
+
+A construction company should emphasize projects, services, trust and quote requests.
+
+A gym should emphasize programs, memberships and calls to action.
+
+Do not use one universal layout for every industry.
+
+============================================================
+PHASE 1 — UNDERSTAND BEFORE CODING
+============================================================
+
+Before modifying the application:
+
+1. Read LEAD_CONTEXT.json.
+2. Inspect the complete existing project structure.
+3. Inspect package.json.
+4. Inspect the existing styling system.
+5. Inspect all existing components.
+6. Inspect the existing pages.
+7. Inspect the existing /api/contact implementation.
+8. Inspect SMTP configuration handling.
+9. Understand how images are currently configured.
+10. Understand the current routing architecture.
+
+Do not immediately start replacing files.
+
+First understand what already exists.
+
+Reuse good existing infrastructure where appropriate.
+
+Do not migrate away from Next.js.
+
+Do not introduce another framework.
+
+Do not unnecessarily replace working functionality.
+
+============================================================
+PHASE 2 — BUSINESS & UX STRATEGY
+============================================================
+
+Determine the most appropriate website experience for the business.
+
+Identify internally:
+
+- Primary business type
+- Primary customer
+- Primary conversion goal
+- Secondary conversion goal
+- Most important services
+- Most important information
+- Appropriate CTA
+- Appropriate navigation
+- Appropriate homepage structure
+- Appropriate visual style
+- Appropriate imagery
+- Appropriate interaction patterns
+
+Then build the website around those decisions.
+
+DO NOT expose this internal reasoning in the website.
+
+============================================================
+PHASE 3 — BRAND IDENTITY
+============================================================
+
+Create a complete visual identity for this specific business.
+
+Determine:
+
+- Primary color
+- Secondary color
+- Accent color
+- Background colors
+- Surface colors
+- Text colors
+- Muted text colors
+- Border colors
+- Button colors
+- Hover states
+- Focus states
+- Typography
+- Font hierarchy
+- Border radius
+- Shadows
+- Card treatment
+- Spacing system
+- Icon treatment
+
+The colors should make sense for the business.
+
+Do not randomly use purple/blue gradients just because they are common in AI-generated websites.
+
+Avoid generic "AI SaaS" visual language unless the business itself is a technology/SaaS company.
+
+The visual identity should feel intentional.
+
+============================================================
+LOGO
+============================================================
+
+Create a professional logo specifically for this business.
+
+The logo should be based on:
+
+- Business name
+- Business category
+- Brand personality
+- Appropriate symbolism
+- Chosen color system
+
+Do not use a generic placeholder logo.
+
+Prefer a clean, simple, professional mark.
+
+The logo can be:
+
+- SVG
+- CSS/vector-based
+- Generated visual asset
+- Combination of symbol + wordmark
+
+If an SVG is created, keep it clean and production-ready.
+
+Create appropriate versions when useful:
+
+- Full logo
+- Compact/mark version
+- Favicon/icon version
+
+The logo must work on both desktop and mobile.
+
+Do not use copyrighted logos or imitate another company's identity.
+
+============================================================
+IMAGERY
+============================================================
+
+Images are an important part of the website.
+
+Use relevant imagery based on the business context.
+
+Priority:
+
+1. Business-provided images
+2. Lead-provided image URLs
+3. Appropriate generated imagery
+4. Appropriate existing local assets
+
+If the provided images are insufficient, generate suitable original visual assets when image generation is available.
+
+Generated imagery MUST match:
+
+- Business category
+- Brand colors
+- Website visual language
+- Section purpose
+- Aspect ratio
+- Overall atmosphere
+
+Do not use random unrelated stock photography.
+
+For example:
+
+A dental clinic should have appropriate dental/clinical imagery.
+
+A restaurant should have food/interior/chef imagery appropriate to the business.
+
+A mechanic should have automotive/workshop imagery.
+
+A salon should have appropriate beauty/hair imagery.
+
+Images should look intentional rather than inserted merely to fill space.
+
+Use different imagery where appropriate instead of repeating the same image throughout the website.
+
+Optimize images for web performance.
+
+Use Next.js Image where appropriate.
+
+Use correct:
+
+- width
+- height
+- aspect ratio
+- object-fit
+- object-position
+- alt text
+- lazy loading where appropriate
+
+Never allow images to stretch or break layouts.
+
+============================================================
+IMAGE GENERATION
+============================================================
+
+When suitable images are unavailable and image generation capability is available:
+
+Generate original imagery that matches the business.
+
+Do not generate text-heavy images.
+
+Do not put fake business claims inside generated images.
+
+Do not generate fake testimonials, fake customers, fake awards or misleading business evidence.
+
+Generated images should support the design rather than replace actual business information.
+
+============================================================
+CONTENT GENERATION
+============================================================
+
+Generate complete website copy based on the actual business data.
+
+The content must feel human-written.
+
+DO NOT write obvious AI-style copy.
+
+Avoid repetitive patterns such as:
+
+"At X, we are committed to..."
+
+"We are dedicated to..."
+
+"Our mission is..."
+
+"Whether you are looking for X or Y, we..."
+
+Avoid excessive corporate filler.
+
+Avoid unnatural keyword stuffing.
+
+Avoid repetitive sentence structures.
+
+Avoid unnecessary em dashes.
+
+Do not use excessive:
+
+"—"
+
+or:
+
+"–"
+
+in normal marketing copy.
+
+Prefer natural punctuation and natural sentence structure.
+
+Write copy that sounds like a real local business.
+
+Use specific details from the business context whenever available.
+
+Do not invent:
+
+- Reviews
+- Testimonials
+- Awards
+- Certifications
+- Statistics
+- Customer counts
+- Years in business
+- Partnerships
+- Guarantees
+- Pricing
+- Qualifications
+- Locations
+- Services
+
+If information does not exist, do not fabricate it.
+
+It is better to have concise truthful content than impressive-looking fake content.
+
+============================================================
+COPY STYLE
+============================================================
+
+The copy should be:
+
+- Natural
+- Clear
+- Concise
+- Human
+- Business-specific
+- Easy to scan
+- Conversion-oriented
+- Appropriate to the industry
+
+Avoid unnecessarily long paragraphs.
+
+Use strong headings.
+
+Use short supporting text.
+
+Use clear CTAs.
+
+Do not make every section sound like the same AI-generated voice.
+
+============================================================
+DYNAMIC PAGE ARCHITECTURE
+============================================================
+
+Do NOT force the same section order onto every business.
+
+Build the layout dynamically based on the business.
+
+Before coding the homepage, choose a layout archetype and write it into `DESIGN_USED.md` early (you can refine later).
+
+Examples of archetypes (pick one NOT recently used):
+- split-hero-asymmetric
+- stacked-editorial
+- bento-services
+- map-first-local
+- gallery-led
+- timeline-process
+- sticky-sidebar-cta
+- fullbleed-overlay-hero
+- zigzag-content
+- magazine-multicolumn
+
+Possible sections include:
+
+- Hero
+- Services
+- About
+- Why choose us
+- Process
+- Features
+- Menu
+- Gallery
+- Team
+- Doctors
+- Treatments
+- Projects
+- Portfolio
+- Properties
+- Testimonials ONLY if real data exists
+- FAQ ONLY if useful information exists
+- Service area
+- Location
+- Opening hours
+- Booking
+- Contact
+- Newsletter where appropriate
+- CTA
+- Map
+- Footer
+
+Only use sections that make sense.
+
+Do not add sections simply because a template contains them.
+
+A short, excellent website is better than a long website filled with irrelevant sections.
+
+Vary WHERE the map and primary images appear relative to services/about/contact. Do not default to "hero → 3 cards → about → map → footer" every time.
+
+============================================================
+HERO SECTION
+============================================================
+
+The hero must immediately communicate:
+
+- What the business does
+- Who it serves
+- The primary value proposition
+- Appropriate primary CTA
+- Appropriate secondary CTA when useful
+
+The hero should be visually strong AND structurally unique vs prior sites.
+
+Vary hero composition across builds. Examples (do not reuse the same one consecutively):
+- Full-bleed background image with overlay content
+- Asymmetric 60/40 split with overlapping media
+- Centered minimal with supporting trust strip below
+- Media-dominant with text in a floating panel
+- Diagonal / clipped image frame
+- Map-adjacent local hero for hyperlocal businesses
+
+Use appropriate business imagery.
+
+The hero must work correctly on mobile.
+
+Do not make the hero so tall that users cannot see useful content without scrolling.
+
+Buttons must have clear purpose.
+
+Examples:
+
+Dental:
+
+"Book an Appointment"
+
+"Call the Clinic"
+
+Restaurant:
+
+"View Menu"
+
+"Reserve a Table"
+
+Auto repair:
+
+"Get a Quote"
+
+"Call Now"
+
+Local service:
+
+"Request a Quote"
+
+"Contact Us"
+
+Choose actions based on the actual business.
+
+============================================================
+NAVIGATION
+============================================================
+
+Create a professional navigation system.
+
+Desktop navigation should include:
+
+- Logo
+- Relevant page links
+- Primary CTA where appropriate
+
+Mobile navigation MUST be fully implemented.
+
+Requirements:
+
+- Hamburger button
+- Smooth open/close animation
+- Proper overlay or panel
+- Prevent background interaction when necessary
+- Close button where appropriate
+- Close on navigation
+- Escape key support where appropriate
+- Keyboard accessibility
+- Proper focus handling
+- Touch-friendly controls
+- No horizontal overflow
+
+Do not use a browser-default mobile menu.
+
+============================================================
+MOBILE-FIRST QUALITY
+============================================================
+
+The website must be genuinely responsive.
+
+Do not simply shrink the desktop layout.
+
+Design intentionally for:
+
+320px
+360px
+375px
+390px
+414px
+430px
+768px
+1024px
+1280px
+1440px
+1920px
+
+Check:
+
+- Typography
+- Navigation
+- Hero
+- Images
+- Cards
+- Forms
+- Buttons
+- Grids
+- Tables if present
+- Footer
+- Modals
+- Dropdowns
+- Calendars
+- Spacing
+- Overflow
+
+There must be NO accidental horizontal scrolling.
+
+No content may be cut off.
+
+No buttons should become unusably small.
+
+No text should overlap.
+
+No fixed-width component should break mobile layouts.
+
+============================================================
+INTERACTION DESIGN
+============================================================
+
+Every interactive element must have appropriate feedback.
+
+Buttons should have:
+
+- Hover state
+- Focus state
+- Active/pressed state
+- Disabled state
+- Loading state where applicable
+
+Links should have:
+
+- Hover state
+- Focus state
+- Appropriate transition
+
+Cards may have subtle hover behavior where useful.
+
+Inputs should have:
+
+- Default state
+- Focus state
+- Error state
+- Disabled state
+- Valid state where useful
+
+Dropdowns should have:
+
+- Open animation
+- Closed state
+- Selected state
+- Hover state
+- Keyboard navigation where appropriate
+- Mobile-friendly behavior
+
+Do not make interactions decorative only.
+
+They must communicate state to the user.
+
+============================================================
+ANIMATIONS
+============================================================
+
+Motion is part of the unique identity of each site — not optional polish.
+
+REQUIRED:
+1. Install ONE primary motion library for this project:
+   - `framer-motion` (preferred for React App Router client components), OR
+   - `gsap` with ScrollTrigger (and `@gsap/react` when useful)
+2. Use it for real custom sequences — not a single shared fade-in class on every section.
+3. Implement at least:
+   - Hero entrance choreography (staggered headline / CTA / media)
+   - Scroll-triggered section reveals with DIFFERENT patterns across sections
+   - Mobile menu open/close motion
+   - Meaningful hover/press feedback on primary interactive elements
+4. Keep performance sensible (avoid huge timelines on low-end phones).
+5. Always respect `prefers-reduced-motion` (disable or simplify motion).
+
+CSS transitions alone are NOT enough for the primary storytelling motion.
+
+Avoid:
+- Excessive bouncing
+- Constant movement
+- Distracting parallax everywhere
+- Identical fade-up on every block
+- Long delays that make the site feel slow
+- Animation libraries left installed but unused
+
+Animations should improve perceived quality and make THIS site feel custom.
+
+============================================================
+MICRO-INTERACTIONS
+============================================================
+
+Add subtle micro-interactions where appropriate.
+
+Examples:
+
+- Button press feedback
+- Icon transitions
+- Menu icon animation
+- Input focus transitions
+- Success check animation
+- Error shake/subtle feedback
+- Card hover elevation
+- Image zoom on hover where appropriate
+- Copy-to-clipboard feedback
+- Phone/email interaction feedback
+- Loading indicators
+
+Every interaction should feel intentional.
+
+============================================================
+LOADING EXPERIENCE
+============================================================
+
+Do not leave users staring at blank screens.
+
+Implement appropriate loading states.
+
+Where asynchronous content exists, use:
+
+- Skeleton loaders
+- Spinners
+- Button loading states
+- Disabled states
+- Progress indicators where useful
+
+Skeletons should match the actual content layout.
+
+Do not use skeleton loading where content is already immediately available and no loading occurs.
+
+Avoid unnecessary loading animations.
+
+============================================================
+FORMS
+============================================================
+
+Forms must feel production-ready.
+
+Implement:
+
+- Proper labels
+- Helpful placeholders
+- Required indicators
+- Client-side validation
+- Server-side validation where applicable
+- Error messages
+- Success messages
+- Loading state
+- Disabled submission state
+- Field-level feedback
+- Accessible error association
+- Keyboard navigation
+- Mobile-friendly layout
+
+Do not rely only on browser validation.
+
+Validation messages should be human-readable.
+
+Example:
+
+Bad:
+
+"Invalid input"
+
+Better:
+
+"Please enter a valid phone number."
+
+============================================================
+SMART BUSINESS-SPECIFIC FORMS
+============================================================
+
+Create forms appropriate to the business.
+
+Do not use the exact same contact form for every industry.
+
+Examples:
+
+Dental clinic:
+
+- Name
+- Phone
+- Email
+- Treatment/service
+- Preferred date
+- Preferred time
+- Message
+
+Include a custom appointment experience when appropriate.
+
+Restaurant:
+
+- Name
+- Phone/email
+- Date
+- Time
+- Number of guests
+- Message
+
+Salon:
+
+- Name
+- Service
+- Preferred date
+- Preferred time
+- Contact information
+
+Local service company:
+
+- Name
+- Phone
+- Email
+- Service required
+- Project details
+- Preferred contact method
+
+Only add fields that make sense.
+
+Do not invent business processes that the business does not appear to support.
+
+============================================================
+CUSTOM DATE / CALENDAR UI
+============================================================
+
+When date selection is appropriate:
+
+Do NOT simply use an ugly browser-default date input if a custom experience is practical.
+
+Create a theme-matching date picker/calendar.
+
+It should support:
+
+- Month navigation
+- Date selection
+- Selected state
+- Disabled dates where applicable
+- Today state
+- Mobile usability
+- Keyboard accessibility
+- Clear visual hierarchy
+
+Use the website's design system.
+
+Do not make the calendar visually disconnected from the rest of the website.
+
+If there is no actual availability backend, do not pretend that availability is real.
+
+The UI must not falsely claim that a slot is confirmed.
+
+============================================================
+CUSTOM DROPDOWNS
+============================================================
+
+For important select fields, create polished custom dropdowns where appropriate.
+
+Requirements:
+
+- Clear selected state
+- Open/close animation
+- Keyboard support
+- Mobile support
+- Focus state
+- Disabled state
+- Error state
+- Proper ARIA behavior
+
+Do not use custom dropdowns unnecessarily for simple native selection where native controls provide a better accessibility experience.
+
+============================================================
+CONTACT EXPERIENCE
+============================================================
+
+Preserve the existing:
+
+/api/contact
+
+functionality.
+
+The existing SMTP implementation must continue to work.
+
+Do not replace it with a fake frontend-only form.
+
+The contact flow should provide clear feedback:
+
+Submitting:
+"Sending..."
+
+Success:
+A clear confirmation message.
+
+Failure:
+A useful error message and retry option.
+
+Do not expose SMTP credentials.
+
+============================================================
+BOOKING EXPERIENCE
+============================================================
+
+If the business type indicates appointments/bookings are important:
+
+Create a suitable booking flow.
+
+Examples:
+
+- Dental
+- Medical
+- Salon
+- Spa
+- Consultation
+- Professional services
+
+The booking UI should match the website theme.
+
+If no real booking backend exists:
+
+Do not pretend that a booking has been confirmed.
+
+The interface should clearly communicate what happens next.
+
+============================================================
+FOOTER
+============================================================
+
+Create a complete professional footer.
+
+Include relevant information such as:
+
+- Logo
+- Business description
+- Navigation
+- Services
+- Contact information
+- Address
+- Hours
+- Phone
+- Email
+- Social links when actually provided
+- Copyright
+
+Do not add fake social accounts.
+
+Footer must be responsive.
+
+On mobile:
+
+- Stack sections appropriately
+- Maintain readable spacing
+- Keep contact information accessible
+- Avoid oversized empty areas
+
+============================================================
+SEO
+============================================================
+
+Implement proper SEO throughout the website.
+
+Include:
+
+- Page title
+- Meta description
+- Canonical URL where appropriate
+- Open Graph metadata
+- Twitter/X metadata where appropriate
+- Favicon
+- Apple/mobile icons where appropriate
+- Robots metadata where appropriate
+- Sitemap support where appropriate
+- Semantic HTML
+- Correct heading hierarchy
+- Descriptive image alt text
+
+Titles and descriptions must be specific to the business.
+
+Do not keyword stuff.
+
+============================================================
+TAB TITLE / BROWSER EXPERIENCE
+============================================================
+
+The browser tab must have a proper title.
+
+Example:
+
+Business Name | Primary Service
+
+Do not leave:
+
+"Create Next App"
+
+"Next.js App"
+
+"Home"
+
+or other template titles.
+
+Create an appropriate favicon based on the business logo/brand.
+
+============================================================
+STRUCTURED DATA
+============================================================
+
+Where sufficient factual data exists, implement appropriate schema.org structured data.
+
+Use the appropriate business type when possible.
+
+Do not invent fields.
+
+Potential examples:
+
+- LocalBusiness
+- Dentist
+- Restaurant
+- BeautySalon
+- AutomotiveBusiness
+- ProfessionalService
+
+Only include information supported by the lead data.
+
+============================================================
+ACCESSIBILITY
+============================================================
+
+Follow accessibility best practices.
+
+Ensure:
+
+- Semantic HTML
+- Correct heading hierarchy
+- Labels
+- Keyboard navigation
+- Visible focus states
+- Accessible buttons
+- Accessible menus
+- Accessible modals
+- Accessible dropdowns
+- Accessible forms
+- Color contrast
+- Screen-reader-friendly labels
+- Meaningful alt text
+- Reduced motion support
+
+Do not sacrifice accessibility for visual effects.
+
+============================================================
+PERFORMANCE
+============================================================
+
+Keep the site fast.
+
+Prefer:
+
+- Server components where appropriate
+- Optimized images
+- next/image
+- Lazy loading
+- CSS animations
+- Minimal JavaScript
+- Existing dependencies
+
+Do not install large packages for trivial functionality.
+
+Avoid unnecessary client components.
+
+Avoid unnecessary API requests.
+
+============================================================
+TECHNICAL ARCHITECTURE
+============================================================
+
+Keep the existing Next.js App Router architecture.
+
+Use reusable components.
+
+Keep business data centralized where practical.
+
+Update:
+
+src/lib/site.ts
+
+and/or the existing content/configuration layer.
+
+Avoid duplicating business information throughout the application.
+
+Keep components maintainable.
+
+Avoid giant files.
+
+Avoid duplicated code.
+
+Avoid unused imports.
+
+Avoid dead code.
+
+Avoid console.log debugging statements.
+
+============================================================
+NO FAKE CONTENT
+============================================================
+
+NEVER fabricate:
+
+- Testimonials
+- Reviews
+- Google ratings
+- Awards
+- Certifications
+- Statistics
+- Team members
+- Doctors
+- Customer counts
+- Years of experience
+- Client logos
+- Partnerships
+- Prices
+- Guarantees
+- Locations
+- Opening hours
+- Services
+
+If the information is not available, omit it.
+
+============================================================
+NO GENERIC AI DESIGN
+============================================================
+
+Avoid common AI-generated website patterns:
+
+- Excessive purple/blue gradients
+- Excessive glassmorphism
+- Random glowing blobs
+- Excessive rounded cards
+- Every section inside a card
+- Huge meaningless headings
+- Repetitive layouts
+- Generic "Empowering businesses..." copy
+- Fake statistics
+- Fake testimonials
+- Excessive icons
+- Excessive animations
+- Unnecessary dark sections
+- Random gradients with no brand purpose
+
+The site should look like a real business website, not an AI demo.
+
+============================================================
+DESIGN CONSISTENCY
+============================================================
+
+Everything must belong to the same design system.
+
+The following must visually match:
+
+- Buttons
+- Inputs
+- Dropdowns
+- Calendar
+- Cards
+- Navigation
+- Footer
+- Modals
+- Loading states
+- Skeletons
+- Error states
+- Success states
+- Icons
+- Typography
+- Colors
+- Spacing
+- Animations
+
+Do not create one beautiful hero and then generic components everywhere else.
+
+============================================================
+RESPONSIVE TESTING
+============================================================
+
+Before finishing, inspect the website at multiple viewport sizes.
+
+At minimum consider:
+
+320
+375
+390
+430
+768
+1024
+1280
+1440
+1920
+
+Look specifically for:
+
+- Horizontal overflow
+- Broken grids
+- Overlapping elements
+- Incorrect font sizes
+- Navigation issues
+- Footer problems
+- Form problems
+- Calendar problems
+- Dropdown problems
+- Image cropping problems
+- Button problems
+
+Fix anything you find.
+
+============================================================
+FINAL QA
+============================================================
+
+Run:
+
+npm install
+
+if necessary.
+
+Then:
+
+npm run build
+
+If the build fails:
+
+- Read the error
+- Identify the root cause
+- Fix it
+- Run the build again
+
+Continue until:
+
+npm run build
+
+succeeds.
+
+Also verify:
+
+- No TypeScript errors
+- No broken imports
+- No missing components
+- No broken routes
+- No broken images
+- No console errors
+- Contact form works
+- /api/contact remains functional
+- Mobile menu works
+- Forms work
+- Buttons work
+- Dropdowns work
+- Calendar works where implemented
+- Loading states work
+- Success states work
+- Error states work
+- Footer works
+- Navigation works
+- SEO metadata exists
+- Favicon exists
+- No placeholder content remains
+
+============================================================
+SECURITY
+============================================================
+
+Never expose:
+
+- API keys
+- SMTP passwords
+- Tokens
+- Secrets
+- Private credentials
+
+.env.local must remain local and must not be committed.
+
+Do not print secrets into source files.
+
+============================================================
+GIT
+============================================================
+
+If GitHub tooling/credentials are available:
+
+- Use the provided repository/project slug.
+- Initialize Git if necessary.
+- Commit the completed website.
+- Push the completed project to the correct repository.
+
+Never commit:
+
+.env.local
+
+secrets
+
+credentials
+
+API keys
+
+tokens
+
+============================================================
+DEFINITION OF DONE
+============================================================
+
+The task is NOT complete merely because the code compiles.
+
+The task is complete only when the website is:
+
+- Business-specific
+- Professionally designed
+- Human-looking
+- Visually polished
+- Mobile-first
+- Fully responsive
+- Accessible
+- Interactive
+- Fast
+- SEO-ready
+- Conversion-oriented
+- Properly branded
+- Properly animated
+- Properly validated
+- Production-ready
+
+The website must feel intentionally designed for THIS business.
+
+Structural uniqueness is mandatory:
+- Different layout archetype than recent builds
+- Different section order / hero composition / media+map placement
+- Real framer-motion or GSAP usage (not unused dependency)
+
+Do not stop after generating the first working version.
+
+Perform a refinement pass.
+
+Look for areas that feel generic, empty, repetitive, unfinished, template-reskinned, or AI-generated.
+
+If the site still matches the starter skeleton or a prior clinic clone, rebuild the layout before finishing.
+
+Improve them before finishing.
+
+============================================================
+FINAL RESPONSE
+============================================================
+
+When everything is complete, report only:
+
+1. Website completed
+2. Build status
+3. Repository status
+4. Confirm `DESIGN_USED.md` was written
+5. Any unresolved issue
+
+Do not give a long explanation.
+
+Most importantly:
+
+DO THE WORK.
+
+Do not merely describe what you would do.
